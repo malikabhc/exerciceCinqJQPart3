@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Exercice_5</title>
+    <style>
+      #square{
+        background-color: green;
+        height : 50px;
+        width : 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="text">
+      <div id="square"></div>
+    </form>
+    <script>
+    $('#text').keydown(function(e) {
+      var windowHeight = $(window).height();
+      var windowWidth = $(window).width();
+      var marginLeft = parseInt($('#square').css('margin-left'));
+      var marginTop = parseInt($('#square').css('margin-top'));
+      switch (e.which) {
+        case 37:
+        marginLeft -= 10;
+        if(marginLeft <= 0) {
+          marginLeft = windowWidth - 50;
+        }
+        $('#square').css('margin-left', marginLeft);
+        break;
+        case 38:
+        marginTop -= 10;
+        if(marginTop <= 0) {
+          marginTop = windowHeight - 90;
+        }
+        $('#square').css('margin-top', marginTop);
+        break;
+        case 39:
+        marginLeft += 10;
+        if (windowWidth <= marginLeft + 50) {
+          marginLeft = 0;
+        }
+        $('#square').css('margin-left', marginLeft);
+        break;
+        case 40:
+        marginTop += 10;
+        if (windowHeight <= marginTop + 90) {
+          marginTop = 0;
+        }
+        $('#square').css('margin-top', marginTop);
+        break;
+      }
+    });
+ </script>
+   </body>
+</html>
